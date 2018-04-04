@@ -1,0 +1,59 @@
+var book = [
+    
+    {title: "The Giver",
+    stars: 4,
+    author: "Stephen King",
+    color: color(100,100,100),
+    recommendation: true},
+    
+    {title: "The King",
+    stars: 3,
+    author: "Lee Child",
+    color: color(176, 146, 176),
+    recommendation: true},
+    
+    {title: "The Boss",
+    stars: 1,
+    author: "Stanislaw Lem",
+    color: color(209, 61, 209),
+    recommendation: false}
+    
+];
+
+var bookPositions=[
+    
+    {x: 10, y: 20},
+    {x: 110, y: 20},
+    {x: 210, y: 20}
+    
+    ];
+    
+// draw shelf
+fill(173, 117, 33);
+rect(0, 120, width, 10);
+
+//draw books
+
+for (var i=0;i<book.length;i++){
+ 
+fill(book[i].color);
+rect(bookPositions[i].x, bookPositions[i].y, 90, 100);
+fill(0, 0, 0);
+textSize(15);
+text(book[i].title, 15+i*100, 29, 70, 100);
+textSize(10);
+text(book[i].author, 15+i*100, 49, 70, 100);
+
+if (book[i].recommendation===true){
+    
+    image(getImage("creatures/Winston"),15+i*100, 70, 20, 20);
+    textSize(12);
+    text("GOOD", 40+i*100, 85);
+    
+}
+
+    for (var j=0;j<book[i].stars;j++){
+    image(getImage("cute/Star"), 13 + j * 20+i*100, 90, 20, 30);
+    }
+}
+
